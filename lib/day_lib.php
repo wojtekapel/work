@@ -21,10 +21,14 @@ function day_json($row){
     return $temp =  $array;
   }
   else{
-    return null;
-
-
+    $tempArray = json_decode($row['json']);
+    array_push($tempArray, day_array());
+    return $temp = $tempArray;
   }
+}
+
+function add_day($row){
+
 }
 
 function czas($time, $start){

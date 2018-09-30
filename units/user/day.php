@@ -11,7 +11,7 @@ if(isset($_GET['action'])){
 
         if(day_json($db->getJSON())){
           $json = json_encode(day_json($db->getJSON()));
-          echo $query = "UPDATE log SET json = '".$json."' WHERE week =".date('W');
+          echo $query = "UPDATE log SET json = '".$json."' WHERE week =".date('W');//zrób funkcję
           $db->find($query);
         }
 

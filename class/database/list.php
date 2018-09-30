@@ -72,4 +72,9 @@ class lista extends db{
     return $libResult;
   }
 
+  public function setJSON($json){
+    $query = "UPDATE log SET json = '$json' WHERE week = ".date('W');
+    $this->get($query);
+  }
+
 }

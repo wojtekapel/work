@@ -24,7 +24,7 @@ if(isset($_GET['action'])){
 
       }
     }
-    print_r($json);
+    $db->setJSON(json_encode($json));
   }
   elseif($_GET['action'] == 'stop'){
 
