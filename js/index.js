@@ -25,19 +25,19 @@ log.onreadystatechange = function(){
           ajax.send();
         });
 
-      var list = new XMLHttpRequest();
-      list.onreadystatechange = function(){
-          if(this.readyState == 4 && this.status == 200){
-            document.getElementById('list').innerHTML = this.responseText;
-            document.getElementById('listSelect').addEventListener('change', function(){
-
-              document.getElementById('dane').innerHTML = this.value;
-            });
-          }
-
-      }
-      list.open('GET', 'units/klient/list.php', true);
-      list.send();
+      // var list = new XMLHttpRequest();
+      // list.onreadystatechange = function(){
+      //     if(this.readyState == 4 && this.status == 200){
+      //       document.getElementById('list').innerHTML = this.responseText;
+      //       document.getElementById('listSelect').addEventListener('change', function(){
+      //
+      //         document.getElementById('dane').innerHTML = this.value;
+      //       });
+      //     }
+      //
+      // }
+      // list.open('GET', 'units/klient/list.php', true);
+      // list.send();
      }
   }
 }
@@ -111,3 +111,57 @@ function statusCheck(){
   stat.send();
 
 }
+
+document.getElementById('tab').addEventListener('click', function(){
+  var xml = new XMLHttpRequest();
+  xml.onreadystatechange = function(){
+    if(this.readyState == 4 && this.status == 200){
+      document.getElementById('content').innerHTML = this.responseText;
+    }
+  }
+  xml.open('GET', 'test/sprawozdanie.php', true);
+  xml.send();
+});
+
+document.getElementById('dodajKlienta').addEventListener('click', function(){
+  var xml = new XMLHttpRequest();
+  xml.onreadystatechange = function(){
+    if(this.readyState == 4 && this.status == 200){
+      document.getElementById('content').innerHTML = this.responseText;
+    }
+  }
+  xml.open('GET', 'views/add.html', true);
+  xml.send();
+});
+
+document.getElementById('search').addEventListener('click', function(){
+  var xml = new XMLHttpRequest();
+  xml.onreadystatechange = function(){
+    if(this.readyState == 4 && this.status == 200){
+      document.getElementById('content').innerHTML = this.responseText;
+
+            var find = document.getElementById('findInput');
+            find.addEventListener('keydown', function(){
+              var listView = new XMLHttpRequest();
+              listView.onreadystatechange = function(){
+                if (this.readyState == 4 && this.status == 200){
+                  document.getElementById('findList').innerHTML = this.responseText;
+                  var link = document.getElementsByClassName('link');
+                  for (i=0; i < link.length; i++){
+                    document.getElementById(link[i].id).addEventListener('click', function(){
+                      // alert ('pipa'+this.id);
+                      point(this.id);
+
+                    });
+                  }
+                }
+
+              }
+              listView.open('GET', 'units/klient/find.php?key='+find.value, true);
+              listView.send();
+            });
+    }
+  }
+  xml.open('GET', 'Views/find.html', true);
+  xml.send();
+});

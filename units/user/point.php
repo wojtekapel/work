@@ -28,7 +28,7 @@ if(isset($_GET['action'])){
 
       }
     }
-
+    $db->setJSON(json_encode($json));
   }
   elseif($_GET['action'] == 'stop'){
 
@@ -38,21 +38,11 @@ if(isset($_GET['action'])){
         $point =  $json[$i]->points;
         $x = 'point'.$point;
         $json[$i]->$x->stop = date('H:i:s');
-         // if($point == 1){
-         //   $array['dojazd'] = czas($array['start'], $json[$i]->start);
-         // }
-         // elseif ($point >1){
-         //   $lastPoint = 'point'.$json[$i]->points;
-         //   $array['dojazd'] = czas($array['start'], $json[$i]->$lastPoint->stop);
-         // }
-
-        // $json[$i]->$x = $array;
-        // $json[$i]->points =+ 1 ;
-
-
       }
     }
+    $db->setJSON(json_encode($json));//Zapis danych do json
   }
-  //Zapis danych do json
-  $db->setJSON(json_encode($json));
+
+
+
 }

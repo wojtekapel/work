@@ -2,7 +2,7 @@
 var ff = new XMLHttpRequest();
 ff.onreadystatechange = function(){
   if(this.readyState == 4 && this.status == 200){
-    document.getElementById('menu').innerHTML = this.responseText;
+    // document.getElementById('menu').innerHTML = this.responseText;
     var MBtn = document.getElementsByClassName('menuBtn');
     for(i=0; i<MBtn.length; i++){
       document.getElementById(MBtn[i].id).addEventListener('click', function(){

@@ -23,8 +23,8 @@ for ($i=0; $i < count($array); $i++) {
           echo '<div style="border:1px solid green; margin-left:30px;">Klient : '.$array[$i]->$point->klient.'</div>';
           echo '<div style="border:1px solid green; margin-left:30px;">Start : '.$array[$i]->$point->start.'</div>';
           echo '<div style="border:1px solid green; margin-left:30px;">Stop : '; if(isset($array[$i]->$point->stop))echo $array[$i]->$point->stop.'</div>';
-          else echo $pt.'</div>';
-          echo '<div style="border:1px solid green; margin-left:30px;">Dojazd : '.$array[$i]->$point->dojazd[0].':'.$array[$i]->point1->dojazd[1].'</div></div>';
+          else echo '<blink>'.$pt.'</blink></div>';
+          echo '<div style="border:1px solid green; margin-left:30px;">Dojazd : '.$array[$i]->$point->dojazd[0].':'.$array[$i]->$point->dojazd[1].'</div></div>';
         }
 
       }
