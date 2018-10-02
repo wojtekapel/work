@@ -77,4 +77,8 @@ class lista extends db{
     $this->get($query);
   }
 
+  public function print($data){
+    echo $data;
+  }
+
 }

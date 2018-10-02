@@ -22,12 +22,13 @@ function point(tt){
        // var temp = jsonInfo;
        // document.getElementById('content').innerHTML = jsonInfo;
        if(this.readyState == 4 && this.status == 200){
-         document.getElementById('list').innerHTML = this.responseText;
+         document.getElementById('content').innerHTML = this.responseText;
 
            document.getElementById('infoName').value = jsonInfo.name;
            document.getElementById('infoKontakt').value = jsonInfo.kontakt;
            document.getElementById('infoTelefon').value = jsonInfo.telefon;
            document.getElementById('infoUser').value = jsonInfo.user;
+           document.getElementById('infoGodziny').value = jsonInfo.godziny;
            startPracy(jsonInfo.name, tt);
 
        }

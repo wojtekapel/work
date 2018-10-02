@@ -1,5 +1,9 @@
 loginCheck();
 
+
+
+
+
 function startPracy(klient, id){
   id = id.replace('klient','');
   document.getElementById('startPracy').addEventListener('click', function(){
@@ -22,5 +26,5 @@ function startPracy(klient, id){
     ajax.send();
   });
 
-  
+
 }

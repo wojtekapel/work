@@ -128,6 +128,17 @@ document.getElementById('dodajKlienta').addEventListener('click', function(){
   xml.onreadystatechange = function(){
     if(this.readyState == 4 && this.status == 200){
       document.getElementById('content').innerHTML = this.responseText;
+      add();
+      document.getElementById('addBtn').addEventListener('click', function(){
+        var Iname = document.getElementById('infoName');
+        var Ikontakt = document.getElementById('infoKontakt');
+        var Itelefon = document.getElementById('infoTelefon');
+        var Igodziny = document.getElementById('infoGodziny');
+        var xml = new XMLHttpRequest();
+        xml.open('POST', 'units/klient/add.php', true);
+        xml.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xml.send('name='+Iname.value+'&kontakt='+Ikontakt.value+'&telefon='+Itelefon.value+'&godziny='+Igodziny.value);
+      });
     }
   }
   xml.open('GET', 'views/add.html', true);

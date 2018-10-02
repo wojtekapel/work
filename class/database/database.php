@@ -5,6 +5,7 @@ class db{
  protected function connect($query){
 
    $connection = new mysqli('localhost', 'root', '', 'navi');
+   $connection = new mysqli('localhost', 'root', '', 'navi');
 
    if($connection->connect_errno > 0){
      echo 'błąd połączenia z bazą danych';
