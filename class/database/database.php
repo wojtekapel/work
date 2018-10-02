@@ -4,8 +4,9 @@ class db{
 
  protected function connect($query){
 
-   $connection = new mysqli('localhost', 'root', '', 'navi');
-   $connection = new mysqli('localhost', 'root', '', 'navi');
+   // $connection = new mysqli('localhost', 'root', '', 'navi');
+   $connection = new mysqli('mysql.cba.pl', 'radiogielda', 'Stefan1234', '4ham');
+
 
    if($connection->connect_errno > 0){
      echo 'błąd połączenia z bazą danych';
@@ -18,7 +19,7 @@ class db{
  }
 
  public function login($user, $pass){
-   $query = 'SELECT * FROM users WHERE name = "'.$user.'"';
+   $query = 'SELECT * FROM persons WHERE name = "'.$user.'"';
    $result = $this->connect($query)->fetch_assoc();
    // if ($pass == $result['password']){
    //   echo 'ok';

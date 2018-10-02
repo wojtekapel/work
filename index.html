@@ -11,24 +11,21 @@
     <title>Work</title>
   </head>
   <body>
+
                   <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                    <!-- <span style="font-size:30px;cursor:pointer; color:white;" onclick="openNav()">&#9776; open</span> -->
                 <!-- Brand -->
-                <a class="navbar-brand" href="#">Work</a>
+                <a class="navbar-brand" style="font-size:34px; color:white;">Work</a>
 
                 <!-- Toggler/collapsibe Button -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" onclick="openNav()">
                   <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <!-- Navbar links -->
-                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <div class="collapse navbar-collapse" id="collapsibleNavbar" ">
                   <br/>
-                  <input type="button" name="" value="Nowy klient" id="dodajKlienta" class="menuBtn btn btn-primary space">
-                  <input type="button" name="" value="Rozpocznij dzień" id="StartDay" class="menuBtn hiden btn btn-success space ">
-                  <input type="button" name="" value="Zakończ dzień" id="StopDay" class="menuBtn hiden btn btn-danger space">
-                  <input type="button" name="" value="W pobliżu" id="gps" class="menuBtn btn space">
-                  <input type="button" name="" value="Zobacz zestawienie" id="tab" class="menuBtn btn btn-info space">
-                  <input type="button" name="" value="Wyszukaj" id="search" class="menuBtn btn btn-primary space">
+
 
                   <br/>
                   <!-- <ul class="navbar-nav">
@@ -46,6 +43,16 @@
               </nav>
 
 
+
+              <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <input type="button" name="" value="Nowy klient" id="dodajKlienta" class="menuBtn btn btn-primary space"><br/>
+                <input type="button" name="" value="Rozpocznij dzień" id="StartDay" class="menuBtn hiden btn btn-success space "><br/>
+                <input type="button" name="" value="Zakończ dzień" id="StopDay" class="menuBtn hiden btn btn-danger space"><br/>
+                <input type="button" name="" value="W pobliżu" id="gps" class="menuBtn btn space"><br/>
+                <input type="button" name="" value="Zobacz zestawienie" id="tab" class="menuBtn btn btn-info space"><br/>
+                <input type="button" name="" value="Wyszukaj" id="search" class="menuBtn btn btn-primary space"><br/>
+              </div>
 
 
     <div class="content" id="content">

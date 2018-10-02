@@ -11,16 +11,16 @@ if(isset($_GET['action'])){
 
         if(day_json($db->getJSON())){
           $json = json_encode(day_json($db->getJSON()));
-          echo $query = "UPDATE log SET json = '".$json."' WHERE week =".date('W');//zrób funkcję
+          echo $query = "UPDATE weeks SET json = '".$json."' WHERE week =".date('W');//zrób funkcję
           $db->find($query);
         }
 
 
-        $query = "UPDATE log SET status = 'active' WHERE week = ".date('W');
+        $query = "UPDATE weeks SET status = 'active' WHERE week = ".date('W');
         $db->find($query);
   }
   elseif($_GET['action'] == 'stop'){
-        $query = "UPDATE log SET status = 'closed' WHERE week = ".date('W');
+        $query = "UPDATE weeks SET status = 'closed' WHERE week = ".date('W');
         $db->find($query);
         $json = json_decode($db->getJSON()['json']);
 
@@ -31,7 +31,7 @@ if(isset($_GET['action'])){
           }
         }
         $json = json_encode($json);
-        echo $query = "UPDATE log SET json = '".$json."' WHERE week =".date('W');
+        echo $query = "UPDATE weeks SET json = '".$json."' WHERE week =".date('W');
         $db->find($query);
 
 

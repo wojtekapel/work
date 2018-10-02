@@ -117,6 +117,7 @@ document.getElementById('tab').addEventListener('click', function(){
   xml.onreadystatechange = function(){
     if(this.readyState == 4 && this.status == 200){
       document.getElementById('content').innerHTML = this.responseText;
+      closeNav();
     }
   }
   xml.open('GET', 'test/sprawozdanie.php', true);
@@ -128,6 +129,7 @@ document.getElementById('dodajKlienta').addEventListener('click', function(){
   xml.onreadystatechange = function(){
     if(this.readyState == 4 && this.status == 200){
       document.getElementById('content').innerHTML = this.responseText;
+      closeNav();
       add();
       document.getElementById('addBtn').addEventListener('click', function(){
         var Iname = document.getElementById('infoName');
@@ -146,6 +148,7 @@ document.getElementById('dodajKlienta').addEventListener('click', function(){
 });
 
 document.getElementById('search').addEventListener('click', function(){
+  closeNav();
   var xml = new XMLHttpRequest();
   xml.onreadystatechange = function(){
     if(this.readyState == 4 && this.status == 200){

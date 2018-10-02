@@ -22,7 +22,7 @@ ff.onreadystatechange = function(){
         var set = new XMLHttpRequest();
         set.onreadystatechange = function(){
           if(this.readyState = 4 && this.status == 200){
-
+             closeNav();
           }
         }
         set.open('GET', 'units/user/day.php?action=start', true);
@@ -38,7 +38,7 @@ ff.onreadystatechange = function(){
       var set = new XMLHttpRequest();
       set.onreadystatechange = function(){
         if(this.readyState = 4 && this.status == 200){
-
+           closeNav();
         }
       }
       set.open('GET', 'units/user/day.php?action=stop', true);

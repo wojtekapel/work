@@ -3,7 +3,7 @@
 include "../class/database/list.php";
 
 $db = new lista();
-$query = "SELECT * FROM log WHERE week =".date('W');
+$query = "SELECT * FROM weeks WHERE week =".date('W');
 $result = $db->find($query)->fetch_assoc();
 
 $dni = array('Niedziela', 'Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota');
