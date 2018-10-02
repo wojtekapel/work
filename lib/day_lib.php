@@ -33,9 +33,32 @@ function add_day($row){
 
 function czas($time, $start){
 
-  $x = explode(':', $time);
-  $xx = explode(":", $start);
+  $poczatekPracy = explode(':', $time);
+  $startDnia = explode(":", $start);
+   $h = $poczatekPracy[0]-$startDnia[0];
+   if($poczatekPracy[1] < $startDnia[1]){
+     $m = (60 - $startDnia[1]) + $poczatekPracy[1];
+     $h = $h - 1;
+   }
+   else{
+     $m = $poczatekPracy[1] - $startDnia[1];
+   }
+  $przejazd = array($h, $m);
+  return $przejazd;
+}
 
-  $xxx = array($x[0]-$xx[0], $x[1]-$xx[1] );
-  return $xxx;
+function countTime($start, $stop){
+
+  $poczatekPracy = explode(':', $start);
+  $koniecPracy = explode(':', $stop);
+  $h = $koniecPracy[0] - $poczatekPracy[0];
+  if($koniecPracy[1] < $poczatekPracy[1]){
+    $m = (60 - $poczatekPracy[1]) + $koniecPracy[1];
+    $h = $h - 1;
+  }
+  else{
+    $m = $koniecPracy[1] - $poczatekPracy[1];
+  }
+  $czasPracy = array($h, $m);
+  return $czasPracy;
 }

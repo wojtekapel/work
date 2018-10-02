@@ -38,6 +38,7 @@ if(isset($_GET['action'])){
         $point =  $json[$i]->points;
         $x = 'point'.$point;
         $json[$i]->$x->stop = date('H:i:s');
+        $json[$i]->$x->time = countTime($json[$i]->$x->start, $json[$i]->$x->stop);
       }
     }
     $db->setJSON(json_encode($json));//Zapis danych do json

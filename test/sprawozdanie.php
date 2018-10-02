@@ -8,7 +8,7 @@ $result = $db->getJSON();
 $dni = array('Niedziela', 'Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota');
 $points = array('point1', 'point2', 'point3', 'point4', 'point5', 'point6', 'point7', 'point8', 'point9');
 $array = json_decode($result['json']);
-$pt = "Praca w toku.";
+$pt = "Zlecenie otwarte.";
 for ($i=0; $i < count($array); $i++) {
 
   echo '<div style="border:1px solid red;" >
@@ -24,7 +24,8 @@ for ($i=0; $i < count($array); $i++) {
           echo '<div style="border:1px solid green; margin-left:30px;">Start : '.$array[$i]->$point->start.'</div>';
           echo '<div style="border:1px solid green; margin-left:30px;">Stop : '; if(isset($array[$i]->$point->stop))echo $array[$i]->$point->stop.'</div>';
           else echo '<blink>'.$pt.'</blink></div>';
-          echo '<div style="border:1px solid green; margin-left:30px;">Dojazd : '.$array[$i]->$point->dojazd[0].':'.$array[$i]->$point->dojazd[1].'</div></div>';
+          echo '<div style="border:1px solid green; margin-left:30px;">Dojazd : '.$array[$i]->$point->dojazd[0].':'.$array[$i]->$point->dojazd[1].'</div>';
+          if(isset($array[$i]->$point->time)) echo '<div style="border:1px solid green; margin-left:30px;">Czas pracy : '.$array[$i]->$point->time[0].':'.$array[$i]->$point->time[1].'</div></div>';
         }
 
       }
@@ -35,6 +36,3 @@ for ($i=0; $i < count($array); $i++) {
    echo '
    </div><br/>';
 }
-
-echo '<br/>';
-print_r($array);
