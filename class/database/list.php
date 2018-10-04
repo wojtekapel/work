@@ -18,7 +18,7 @@ class lista extends db{
   public function status($user){
 
     if(empty($user)) return false;
-    
+
     $tok = 0;
     $query = "SELECT * FROM weeks WHERE user = '".$user."'";
     $rows = $this->get($query);
@@ -78,6 +78,13 @@ class lista extends db{
   public function setJSON($json){
     $query = "UPDATE weeks SET json = '$json' WHERE week = ".date('W');
     $this->get($query);
+  }
+
+  public function getWEEKS($user){
+
+    $query = 'SELECT * FROM weeks WHERE user = "'.$user.'"';
+    $weeks = $this->get($query);
+    return $weeks;
   }
 
   // public function print($data){

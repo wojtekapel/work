@@ -4,8 +4,8 @@ class db{
 
  protected function connect($query){
 
-   // $connection = new mysqli('localhost', 'root', '', 'navi');
-   $connection = new mysqli('mysql.cba.pl', 'radiogielda', 'Stefan1234', '4ham');
+   $connection = new mysqli('localhost', 'root', 'titop630', 'work');
+   // $connection = new mysqli('mysql.cba.pl', 'radiogielda', 'Stefan1234', '4ham');
 
 
    if($connection->connect_errno > 0){

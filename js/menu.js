@@ -23,6 +23,7 @@ ff.onreadystatechange = function(){
         set.onreadystatechange = function(){
           if(this.readyState = 4 && this.status == 200){
              closeNav();
+             console.log(this.responseText);
           }
         }
         set.open('GET', 'units/user/day.php?action=start', true);

@@ -176,6 +176,6 @@ document.getElementById('search').addEventListener('click', function(){
             });
     }
   }
-  xml.open('GET', 'Views/find.html', true);
+  xml.open('GET', 'views/find.html', true);
   xml.send();
 });
