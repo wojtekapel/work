@@ -16,6 +16,9 @@ class lista extends db{
   }
 
   public function status($user){
+
+    if(empty($user)) return false;
+    
     $tok = 0;
     $query = "SELECT * FROM weeks WHERE user = '".$user."'";
     $rows = $this->get($query);
@@ -48,7 +51,7 @@ class lista extends db{
 
         }
 
-        if(!$rows->num_rows || !$tok){
+        if($rows->num_rows == 0  || $tok == 0){
           echo 'closed';
           $this->setRow($user);
         }

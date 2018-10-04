@@ -1,7 +1,7 @@
 loginCheck();
 
 function openNav() {
-    document.getElementById("mySidenav").style.width = "210px";
+    document.getElementById("mySidenav").style.width = "80px";
 }
 
 function closeNav() {
