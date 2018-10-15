@@ -44,7 +44,12 @@ h5{
   display: none;
 }
 
-
+.firstPage{
+  /* color: blue; */
+  font-size: 8vw;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: bold;
+}
 
 .sidenav {
     height: 100%;
