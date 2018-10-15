@@ -1,10 +1,11 @@
 <?php
-
+session_start();
 include "../class/database/list.php";
 
 $db = new lista();
+$user = $_SESSION['login'];
 echo '<h2>Sprawozdanie</h2><br/><br/>';
-$result = $db->getJSON();
+$result = $db->getJSON($user);
 $dni = array('Niedziela', 'Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota');
 $points = array('point1', 'point2', 'point3', 'point4', 'point5', 'point6', 'point7', 'point8', 'point9');
 $array = json_decode($result['json']);

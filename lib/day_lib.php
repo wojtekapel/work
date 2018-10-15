@@ -62,3 +62,15 @@ function countTime($start, $stop){
   $czasPracy = array($h, $m);
   return $czasPracy;
 }
+
+function lastpoint($dojazd, $endpoint, $endday){
+   $powrot = czas($endday, $endpoint);
+   $sumaH = $dojazd[0]+$powrot[0];
+   $sumaM = $dojazd[1]+$powrot[1];
+     if($sumaM > 59){
+       $sumaM = $sumaM - 60;
+       $sumaH = $sumaH + 1;
+     }
+   return $suma = array($sumaH, $sumaM);
+
+}

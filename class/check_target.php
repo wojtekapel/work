@@ -25,15 +25,14 @@ class target extends db {
 
     while($row = $result->fetch_assoc()){
           echo '
-                 <a href="#"><div class="card-body class-klient" id="klient'.$row["id"].'">
+                 <div class="card-body class-klient cursor link" id="klient'.$row["id"].'">
                    <b>'.$row["name"].'</b>
-                 </div></a>';
+                 </div>';
 
     }
           echo '</div><br/>
-          <input type="button" class="btn btn-success btn-block card-klient" onclick="dodajKlienta()" value = "Dodaj"/>
           ';
-            echo '<br/>'.$this->lat_up." / ".$this->lat_dwn;
+            // echo '<br/>'.$this->lat_up." / ".$this->lat_dwn;class="cursor link"
 
   }
 

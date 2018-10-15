@@ -3,47 +3,25 @@
 
 function loginCheck(){
 var log = new XMLHttpRequest();
+
 log.onreadystatechange = function(){
+
   if(this.readyState == 4 && this.status == 200){
      if(this.responseText == 'out'){
+        console.log('Niezalogowany');
         login();
 
      }
      else {
+       console.log('Zalogowany');
 
-        document.getElementById('content').innerHTML = '<span id="logout" >Wyloguj '+this.responseText +' !</span><br/>';
-        var logout = document.getElementById('logout');
-        logout.classList.add('blue', 'cursor');
-        logout.addEventListener('click', function(){
-          ajax = new XMLHttpRequest();
-          ajax.onreadystatechange = function(){
-            if(this.readyState == 4 && this.status == 200){
-              window.location.assign('/work');
-            }
-          }
-          ajax.open('GET', 'units/auth/logout.php', true);
-          ajax.send();
-        });
-
-      // var list = new XMLHttpRequest();
-      // list.onreadystatechange = function(){
-      //     if(this.readyState == 4 && this.status == 200){
-      //       document.getElementById('list').innerHTML = this.responseText;
-      //       document.getElementById('listSelect').addEventListener('change', function(){
-      //
-      //         document.getElementById('dane').innerHTML = this.value;
-      //       });
-      //     }
-      //
-      // }
-      // list.open('GET', 'units/klient/list.php', true);
-      // list.send();
      }
   }
 }
 
 log.open('GET', 'units/auth/check.php', true);
 log.send();
+
 }
 
 
@@ -51,10 +29,13 @@ log.send();
 
 function login(){
   var x = new XMLHttpRequest();
-x.onreadystatechange = function(){
+  x.onreadystatechange = function(){
    if(this.readyState == 4 && this.status == 200){
      document.getElementById('content').innerHTML = this.responseText;
      zaloguj();
+   }
+   else{
+
    }
 }
 x.open('GET', 'views/auth/login.html', true);
@@ -65,13 +46,28 @@ function zaloguj(){
   var btn = document.getElementById('zaloguj');
   var Name = document.getElementById('login_name');
   var pass = document.getElementById('login_pass');
+
+  document.getElementById('regForm').addEventListener('click', function(){
+    console.log('reg');
+    xml = new XMLHttpRequest();
+    xml.onreadystatechange = function(){
+      if(this.readyState == 4 && this.status == 200){
+        document.getElementById('content').innerHTML = this.responseText;
+        register();
+      }
+    }
+    xml.open('GET', 'views/auth/register.html', true);
+    xml.send();
+  });
+
+
   btn.addEventListener('click', function(){
 
   login = new XMLHttpRequest();
   login.onreadystatechange = function(){
     if(this.readyState == 4 && this.status == 200){
       if(this.responseText){
-        window.location.assign('/work');
+        window.location.assign('/nt');
       }
       else{
         document.getElementById('content').innerHTML = 'Błąd logowania.<br/>Spróbuj jeszcze raz.';
@@ -83,9 +79,9 @@ function zaloguj(){
   login.open('GET', 'units/auth/login.php?name='+Name.value+'&pass='+pass.value, true);
   login.send();
 
-    // alert('Twój login to : '+Name.value+' , twoje hasło to : '+pass.value);
-  // alert(btn.value);
    });
+
+
 }
 
 function statusCheck(){
@@ -179,3 +175,86 @@ document.getElementById('search').addEventListener('click', function(){
   xml.open('GET', 'views/find.html', true);
   xml.send();
 });
+
+
+//Zestawienie godziny
+
+document.getElementById('tab_').addEventListener('click', function(){
+
+  var xml = new XMLHttpRequest();
+  xml.onreadystatechange = function(){
+    if(this.readyState == 4 && this.status == 200){
+      document.getElementById('content').innerHTML = this.responseText;
+    }
+  }
+  xml.open('GET', 'test/weeks.php', true);
+  xml.send();
+});
+
+document.getElementById('infoPage').addEventListener('click', function(){
+
+  var xml = new XMLHttpRequest();
+  xml.onreadystatechange = function(){
+    if(this.readyState == 4 && this.status == 200){
+      document.getElementById('content').innerHTML = this.responseText;
+    }
+  }
+  xml.open('GET', 'views/infoPage.html', true);
+  xml.send();
+});
+
+document.getElementById('err').addEventListener('click', function(){
+
+  var xml = new XMLHttpRequest();
+  xml.onreadystatechange = function(){
+    if(this.readyState == 4 && this.status == 200){
+      document.getElementById('content').innerHTML = this.responseText;
+
+          var elist = new XMLHttpRequest();
+          elist.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+              document.getElementById('errorsList').innerHTML = this.responseText;
+            }
+          }
+          elist.open('GET', 'units/errors/errors.php', true);
+          elist.send();
+
+
+                  document.getElementById('errAddBtn').addEventListener('click', function(){
+                    console.log('Errors menu');
+                    var xxml = new XMLHttpRequest();
+                    xxml.onreadystatechange = function(){
+                      if(this.readyState == 4 && this.status == 200){
+                        document.getElementById('content').innerHTML = this.responseText;
+                        document.getElementById('errorSave').addEventListener('click', function(){
+                          console.log('Zapisz błąd.');
+                          var truck = document.getElementById('newErrorTruck').value;
+                          var errorNum = document.getElementById('newErrorNumber').value;
+                          var errorIndex = document.getElementById('newErrorIndex').value;
+                          var errorPost = document.getElementById('newErrorContent').value;
+                          var errorStatus = document.getElementById('newErrorStatus').value;
+
+                          var Exml = new XMLHttpRequest();
+                          Exml.onreadystatechange = function(){
+                            if(this.readyState == 4 && this.status == 200){
+                              console.log(this.responseText);
+                            }
+                          }
+                          Exml.open('POST', 'units/errorsLogbook/errorSave.php', true);
+                          Exml.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                          Exml.send('truck='+truck+'&num='+errorNum+'&index='+errorIndex+'&post='+errorPost+'&status='+errorStatus);
+                        });
+                      }
+                    }
+                    xxml.open('GET', 'views/newerror.html', true);
+                    xxml.send();
+                  });
+
+
+    }
+  }
+  xml.open('GET', 'views/error.html', true);
+  xml.send();
+});
+
+// geolocalization();

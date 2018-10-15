@@ -1,9 +1,16 @@
 <?php
-
+session_start();
 include "../../class/database/list.php";
 require_once "../../lib/day_lib.php";
 $db = new lista();
-$json = json_decode($db->getJSON()['json']);
+
+$db = new lista();
+if(isset($_SESSION['login'])){
+  $user = $_SESSION['login'];
+}
+else die;
+
+$json = json_decode($db->getJSON($user)['json']);
 
 if(isset($_GET['action'])){
   if($_GET['action'] == 'start'){
@@ -13,22 +20,22 @@ if(isset($_GET['action'])){
     for ($i=0; $i < count($json); $i++) {
       if($json[$i]->day == date('w')) {
         // code...
-        $point = ( $json[$i]->points)+1;
-        $x = 'point'.$point;
-         if($point == 1){
-           $array['dojazd'] = czas($array['start'], $json[$i]->start);
-         }
-         elseif ($point >1){
-           $lastPoint = 'point'.$json[$i]->points;
-           $array['dojazd'] = czas($array['start'], $json[$i]->$lastPoint->stop);
-         }
-        $json[$i]->$x = $array;
-        $json[$i]->points = ($json[$i]->points)+1 ;
+          $point = ( $json[$i]->points)+1;
+          $x = 'point'.$point;
+             if($point == 1){
+               $array['dojazd'] = czas($array['start'], $json[$i]->start);
+             }
+             elseif ($point >1){
+               $lastPoint = 'point'.$json[$i]->points;
+               $array['dojazd'] = czas($array['start'], $json[$i]->$lastPoint->stop);
+             }
+          $json[$i]->$x = $array;
+          $json[$i]->points = ($json[$i]->points)+1 ;
 
 
       }
     }
-    $db->setJSON(json_encode($json));
+    $db->setJSON(json_encode($json), $user);
   }
   elseif($_GET['action'] == 'stop'){
 
@@ -41,7 +48,7 @@ if(isset($_GET['action'])){
         $json[$i]->$x->time = countTime($json[$i]->$x->start, $json[$i]->$x->stop);
       }
     }
-    $db->setJSON(json_encode($json));//Zapis danych do json
+    $db->setJSON(json_encode($json), $user);//Zapis danych do json
   }
 
 

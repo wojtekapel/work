@@ -2,6 +2,12 @@
   cursor: pointer;
   margin-left: 20px;
 }
+#content{
+  height: 100vh;
+}
+h5{
+  color:gray;
+}
 
 .yelow{
 
@@ -12,6 +18,10 @@
   margin-right: 10px;
   margin-top:5px;
   width:200px;
+}
+.topSpace{
+  margin-top: 10px;
+  padding:5px;
 }
 
 .blue{
@@ -80,86 +90,50 @@
 
 
 
-
-.box {
-    width: 500px;
-    margin: 200px 0;
+.week{
+  /* border:1px solid #bdc1c9; */
+  border-radius: 5px;
+  /* padding:2px; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  background-image: linear-gradient(#e3e5e8, #d7dbe2);
+}
+.weekN{
+  /* border:1px solid blue; */
+  border-radius: 5px;
+  padding:2px;
+  margin-left: 5px;
+  /* margin-top: auto;
+  margin-bottom: auto; */
+  color: #5c6c8c;
+  font-size: 24px;
+  font-weight: 400;
+  width: 70px;
+  height: 100%;
+  background-color: #d7dbe2;
+  display:inline-block;
+}
+.weekD{
+  display:inline-block;
+  font-size: 12px;
 }
 
-.shape1{
-    position: relative;
-    height: 150px;
-    width: 150px;
-    background-color: #0074d9;
-    border-radius: 80px;
-    float: left;
-    margin-right: -50px;
+.card-info-small{
+  font-size: 12px;
+  color:gray;
 }
-.shape2 {
-    position: relative;
-    height: 150px;
-    width: 150px;
-    background-color: #0074d9;
-    border-radius: 80px;
-    margin-top: -30px;
-    float: left;
-}
-.shape3 {
-    position: relative;
-    height: 150px;
-    width: 150px;
-    background-color: #0074d9;
-    border-radius: 80px;
-    margin-top: -30px;
-    float: left;
-    margin-left: -31px;
-}
-.shape4 {
-    position: relative;
-    height: 150px;
-    width: 150px;
-    background-color: #0074d9;
-    border-radius: 80px;
-    margin-top: -25px;
-    float: left;
-    margin-left: -32px;
-}
-.shape5 {
-    position: relative;
-    height: 150px;
-    width: 150px;
-    background-color: #0074d9;
-    border-radius: 80px;
-    float: left;
-    margin-right: -48px;
-    margin-left: -32px;
-    margin-top: -30px;
-}
-.shape6 {
-    position: relative;
-    height: 150px;
-    width: 150px;
-    background-color: #0074d9;
-    border-radius: 80px;
-    float: left;
-    margin-right: -20px;
-    margin-top: -35px;
-}
-.shape7 {
-    position: relative;
-    height: 150px;
-    width: 150px;
-    background-color: #0074d9;
-    border-radius: 80px;
-    float: left;
-    margin-right: -20px;
-    margin-top: -57px;
-}
-.float {
-    position: absolute;
-    z-index: 2;
+.registerSpan{
+  color: blue;
+  cursor: pointer;
+  font-size: 14px;
 }
 
-.form {
-    margin-left: 145px;
+/* Errors search */
+.errAdd{
+  position: absolute;
+  /* bottom: 30px; */
+}
+.full{
+  height: 100vh;
 }

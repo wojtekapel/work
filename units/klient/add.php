@@ -2,6 +2,8 @@
 
 include "../../class/database/list.php";
 session_start();
+$lat = $_SESSION['lat'];
+$lon = $_SESSION['lon'];
 $db = new lista();
 
 if(isset($_POST['name'])){
@@ -13,6 +15,6 @@ if(isset($_POST['name'])){
   $obj->telefon = $_POST['telefon'];
   $obj->user = $_SESSION['login'];
   $json = json_encode($obj);
-  $query = "INSERT INTO dest VALUES (NULL, '$name', 12, 13, '$json')";
+  $query = "INSERT INTO dest VALUES (NULL, '$name', '$lat', '$lon', '$json')";
   $db->find($query);
 }

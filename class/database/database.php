@@ -6,7 +6,8 @@ class db{
 
    $connection = new mysqli('localhost', 'root', 'titop630', 'work');
    // $connection = new mysqli('mysql.cba.pl', 'radiogielda', 'Stefan1234', '4ham');
-
+   mysqli_query($connection, "SET CHARSET utf8");
+   mysqli_query($connection, "SET NAMES 'utf8' COLLATE 'utf8_polish_ci'");
 
    if($connection->connect_errno > 0){
      echo 'błąd połączenia z bazą danych';
